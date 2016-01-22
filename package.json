@@ -1,6 +1,6 @@
 {
   "name": "react-openapi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React component for viewing Open API specification",
   "scripts": {
     "start": "node server.js",
