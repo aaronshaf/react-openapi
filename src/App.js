@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames'
-import petstoreSimple from '../example/petstore-simple'
+import petstoreExpanded from '../example/petstore-expanded'
 
 function Method ({path, method, methodSpec}) {
   var parameters = methodSpec.parameters.map(function (parameter) {
@@ -126,7 +126,14 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <OpenAPI spec={petstoreSimple} />
+        <nav className="navbar navbar-fixed-top navbar-light bg-faded">
+          <a className="navbar-brand" href="#">React OpenAPI Example</a>
+        </nav>
+        <div style={{marginTop: 88}}>
+          <div style={{marginTop: 24}}>
+            <OpenAPI spec={petstoreExpanded} />
+          </div>
+        </div>
       </div>
     );
   }
