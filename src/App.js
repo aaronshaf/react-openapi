@@ -3,7 +3,10 @@ import classnames from 'classnames'
 import petstoreExpanded from '../example/petstore-expanded'
 
 function Method ({path, method, methodSpec}) {
-  var parameters = methodSpec.parameters.map(function (parameter) {
+  // if(!methodSpec.parameters) {
+  //   console.log(methodSpec)
+  // }
+  var parameters = (methodSpec.parameters || []).map(function (parameter) {
     var required = parameter.required && <span style={{color: 'red'}} title='Required'>*</span>
     return (
       <tr key={parameter.name}>
@@ -57,7 +60,7 @@ function Method ({path, method, methodSpec}) {
         <div className={cardHeaderTitleClassnames}>
           <span style={{textTransform: 'uppercase'}}>{method}</span> {path}
         </div>
-        <div>
+        <div style={{float: 'right', padding: '0.35rem 0.9rem'}}>
           {methodSpec.summary}
         </div>
       </div>
