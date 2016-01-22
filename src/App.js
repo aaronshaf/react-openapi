@@ -60,7 +60,7 @@ function Method ({path, method, methodSpec}) {
         <div className={cardHeaderTitleClassnames}>
           <span style={{textTransform: 'uppercase'}}>{method}</span> {path}
         </div>
-        <div style={{float: 'right', padding: '0.35rem 0.9rem'}}>
+        <div style={{float: 'right', padding: '0.35rem 1.25rem'}}>
           {methodSpec.summary}
         </div>
       </div>
