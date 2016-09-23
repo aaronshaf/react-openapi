@@ -4,6 +4,7 @@
   "devDependencies": {
     "react-scripts": "0.4.3"
   },
+  "main": "src/OpenAPI.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/aaronshaf/react-openapi.git"
