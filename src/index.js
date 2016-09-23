@@ -1,5 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import OpenAPI from './OpenAPI'
+import Fetch from 'react-fetch'
+import './index.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <div style={{marginTop: 48, marginBottom: 48}}>
+    <Fetch url="//localhost:3000/api.json">
+      <OpenAPI />
+    </Fetch>
+  </div>,
+  document.getElementById('root')
+)
