@@ -4,11 +4,11 @@ React component for viewing Open API specification
 npm install react-openapi --save
 ```
 
-```
+```javascript
 import OpenAPI from 'react-openapi'
 ```
 
-```
+```jsx
 <OpenAPI {...apiDefinition}>
 ```
 
