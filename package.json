@@ -9,6 +9,10 @@
     "type": "git",
     "url": "https://github.com/aaronshaf/react-openapi.git"
   },
+  "files": [
+    "build",
+    "src"
+  ],
   "keywords": [
     "OpenAPI",
     "Open API",
