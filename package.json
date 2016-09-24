@@ -30,7 +30,7 @@
     "react-dom": "^15.3.2",
     "react-fetch": "0.0.9"
   },
-  "homepage": "/docs",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
