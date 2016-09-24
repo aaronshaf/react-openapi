@@ -6,7 +6,7 @@ import './index.css'
 
 ReactDOM.render(
   <div style={{marginTop: 48, marginBottom: 48}}>
-    <Fetch url="//localhost:3000/api.json">
+    <Fetch url="../api.json">
       <OpenAPI />
     </Fetch>
   </div>,
