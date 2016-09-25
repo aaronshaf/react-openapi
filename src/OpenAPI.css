@@ -18,6 +18,10 @@
 .card-header-title--post {
   background-color: #13C20F;
 }
+.tag--post {
+  border: 1px solid #13C20F;
+  background-color: #13C20F;
+}
 /* put */
 .card--put {
   border: 1px solid #FF9000;
@@ -26,6 +30,10 @@
   background-color: rgba(255,144,0,.1);
 }
 .card-header-title--put {
+  background-color: #FF9000;
+}
+.tag--put {
+  border: 1px solid #FF9000;
   background-color: #FF9000;
 }
 /* patch */
@@ -38,6 +46,10 @@
 .card-header-title--patch {
   background-color: #FFDC00;
 }
+.tag--patch {
+  border: 1px solid #FFDC00;
+  background-color: #FFDC00;
+}
 /* get */
 .card--get {
   border: 1px solid #2392F7;
@@ -48,6 +60,10 @@
 .card-header-title--get {
   background-color: #2392F7;
 }
+.tag--get {
+  border: 1px solid #2392F7;
+  background-color: #2392F7;
+}
 /* delete */
 .card--delete {
   border: 1px solid #E30012;
@@ -56,5 +72,9 @@
   background-color: rgba(227,0,18,.1);
 }
 .card-header-title--delete {
+  background-color: #E30012;
+}
+.tag--delete {
+  border: 1px solid #E30012;
   background-color: #E30012;
 }

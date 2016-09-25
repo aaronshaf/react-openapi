@@ -33,7 +33,7 @@ export default React.createClass({
       )
     })
 
-    var cardClassnames = classnames('card', {
+    const cardClassnames = classnames('card', {
       'card--post': method === 'post',
       'card--get': method === 'get',
       'card--delete': method === 'delete',
@@ -41,7 +41,7 @@ export default React.createClass({
       'card--patch': method === 'patch'
     })
 
-    var cardHeaderClassNames = classnames('card-header', {
+    const cardHeaderClassNames = classnames('card-header', {
       'card-header--post': method === 'post',
       'card-header--get': method === 'get',
       'card-header--delete': method === 'delete',
@@ -49,7 +49,7 @@ export default React.createClass({
       'card-header--patch': method === 'patch'
     })
 
-    var cardHeaderTitleClassnames = classnames('card-header-title', {
+    const cardHeaderTitleClassnames = classnames('card-header-title', {
       'card-header-title--post': method === 'post',
       'card-header-title--get': method === 'get',
       'card-header-title--delete': method === 'delete',
@@ -58,7 +58,7 @@ export default React.createClass({
     })
 
     return (
-      <div className={cardClassnames}>
+      <div className={cardClassnames} id={`${method.toUpperCase()} ${path}`}>
         <div className={cardHeaderClassNames}>
           <div className={cardHeaderTitleClassnames}>
             <span style={{textTransform: 'uppercase'}}>{method}</span> {path}
