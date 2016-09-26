@@ -1,4 +1,5 @@
 import React from 'react'
+import markdown from 'marky-markdown'
 import Path from './Path'
 import TOC from './TOC'
 import './OpenAPI.css'
@@ -21,9 +22,10 @@ export default React.createClass({
     return (
       <div>
         <h2 style={{marginBottom: 24}}>{this.props.info.title}</h2>
-        <div style={{marginTop: 24, marginBottom: 24}}>
-          {this.props.info.description}
-        </div>
+        <div
+          dangerouslySetInnerHTML={{__html: markdown(this.props.info.description).html()}}
+          style={{marginTop: 24, marginBottom: 24}}
+        />
         {Object.keys(this.props.paths).length > 1 &&
           <div style={{marginTop: 24, marginBottom: 24}}>
             <TOC {...this.props} />

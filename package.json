@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "marky-markdown": "^8.1.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-fetch": "0.0.9"
