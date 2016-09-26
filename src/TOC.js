@@ -13,7 +13,7 @@ export default React.createClass({
     const paths = Object.keys(this.props.paths).map((path) => {
       const methods = verbsWithMethods.map((method) => {
         const isVisible = this.props.paths[path][method]
-        const classes = classnames('tag tag-primary', {
+        const classes = classnames('tag', {
           'tag--post': method === 'post',
           'tag--put': method === 'put',
           'tag--patch': method === 'patch',
