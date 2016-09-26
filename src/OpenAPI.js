@@ -22,10 +22,12 @@ export default React.createClass({
     return (
       <div>
         <h2 style={{marginBottom: 24}}>{this.props.info.title}</h2>
-        <div
-          dangerouslySetInnerHTML={{__html: markdown(this.props.info.description).html()}}
-          style={{marginTop: 24, marginBottom: 24}}
-        />
+        {this.props.info.description &&
+          <div
+            dangerouslySetInnerHTML={{__html: markdown(this.props.info.description).html()}}
+            style={{marginTop: 24, marginBottom: 24}}
+          />
+        }
         {Object.keys(this.props.paths).length > 1 &&
           <div style={{marginTop: 24, marginBottom: 24}}>
             <TOC {...this.props} />
