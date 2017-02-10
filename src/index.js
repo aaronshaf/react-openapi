@@ -6,7 +6,7 @@ import './index.css'
 
 ReactDOM.render(
   <div style={{marginTop: 48, marginBottom: 48}}>
-    <Fetch url="http://petstore.swagger.io/v2/swagger.json">
+    <Fetch url="../api.json">
       <OpenAPI />
     </Fetch>
   </div>,
