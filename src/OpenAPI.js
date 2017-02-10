@@ -1,8 +1,10 @@
 import React from 'react'
-import markdown from 'marky-markdown'
+import MarkdownIt from 'markdown-it'
 import Path from './Path'
 import TOC from './TOC'
 import './OpenAPI.css'
+
+const md = new MarkdownIt()
 
 export default React.createClass({
   render() {
@@ -24,7 +26,7 @@ export default React.createClass({
         <h2 style={{marginBottom: 24}}>{this.props.info.title}</h2>
         {this.props.info.description &&
           <div
-            dangerouslySetInnerHTML={{__html: markdown(this.props.info.description).html()}}
+            dangerouslySetInnerHTML={{__html: md.render(this.props.info.description)}}
             style={{marginTop: 24, marginBottom: 24}}
           />
         }

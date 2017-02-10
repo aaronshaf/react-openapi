@@ -10,7 +10,6 @@
     "url": "https://github.com/aaronshaf/react-openapi.git"
   },
   "files": [
-    "build",
     "src"
   ],
   "keywords": [
@@ -26,7 +25,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "marky-markdown": "^8.1.0",
+    "markdown-it": "^8.2.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-fetch": "0.0.9"
@@ -34,7 +33,7 @@
   "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf docs && react-scripts build && mv build docs",
     "test": "react-scripts test --env=jsdom"
   }
 }
