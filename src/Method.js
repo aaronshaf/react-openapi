@@ -76,7 +76,7 @@ export default React.createClass({
               <thead>
                 <tr>
                   <th className='table-active' colSpan={3}>
-                    Required parameters
+                    Parameters
                   </th>
                 </tr>
               </thead>
