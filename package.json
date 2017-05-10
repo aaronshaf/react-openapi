@@ -2,7 +2,7 @@
   "name": "react-openapi",
   "version": "2.2.9",
   "devDependencies": {
-    "react-scripts": "0.4.3"
+    "react-scripts": "^0.9.5"
   },
   "main": "src/OpenAPI.js",
   "repository": {
@@ -26,9 +26,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "markdown-it": "^8.2.2",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "markdown-it": "^8.3.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-fetch": "0.0.9"
   },
   "homepage": ".",
