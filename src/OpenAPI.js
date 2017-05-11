@@ -17,6 +17,7 @@ export default React.createClass({
           key={path}
           path={path}
           methods={this.props.paths[path]}
+          definitions={this.props.definitions}
         />
       )
     })
