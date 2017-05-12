@@ -78,3 +78,10 @@
   border: 1px solid #E30012;
   background-color: #E30012;
 }
+/* parameter list */
+td p:not(:first-child) {
+  line-height: 50%;
+}
+td p:first-child {
+  margin-bottom: 0.5rem;
+}
