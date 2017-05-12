@@ -1,31 +1,31 @@
-import React from 'react'
-import classnames from 'classnames'
+import React from 'react';
+import classnames from 'classnames';
 
 export default React.createClass({
   displayName: 'Method',
 
   render() {
-    const path = this.props.path
-    const method = this.props.method
-    const methodSpec = this.props.methodSpec
-    const definitions = this.props.definitions
+    const path = this.props.path;
+    const method = this.props.method;
+    const methodSpec = this.props.methodSpec;
+    const definitions = this.props.definitions;
     const requiredMark = (
-      <span style={{ color: 'red' }} title='Required'>*</span>
-    )
-    var counter = 0
+      <span style={{ color: 'red' }} title="Required">*</span>
+    );
+    var counter = 0;
 
     function resolveRef(schema) {
       for (var property in schema) {
         if (property === '$ref') {
-          return definitions[/[^/]+$/.exec(schema[property])]
+          return definitions[/[^/]+$/.exec(schema[property])];
         } else {
           if (typeof schema[property] === 'object') {
-            schema[property] = resolveRef(schema[property])
-            schema[property] = resolveRef(schema[property])
+            schema[property] = resolveRef(schema[property]);
+            schema[property] = resolveRef(schema[property]);
           }
         }
       }
-      return schema
+      return schema;
     }
 
     function formatSchema(
@@ -36,29 +36,29 @@ export default React.createClass({
       name
     ) {
       if (schema.schema) {
-        schema = schema.schema
+        schema = schema.schema;
       }
-      var required = false
+      var required = false;
       if (schema.required === true) {
-        required = true
+        required = true;
       }
       if (requiredProperties.indexOf(name) > -1) {
-        required = true
+        required = true;
       }
       if (typeof schema.required === 'object') {
-        requiredProperties = schema.required
+        requiredProperties = schema.required;
       } else {
-        requiredProperties = []
+        requiredProperties = [];
       }
-      required = required && requiredMark
-      var margin = nestLevel * 16
+      required = required && requiredMark;
+      var margin = nestLevel * 16;
 
       if (schema.type === 'object') {
         schemaString.push(
           <p style={{ marginLeft: margin }} key={counter++}>
             {required}{(name ? name + ': ' : '') + '{'}
           </p>
-        )
+        );
         for (var property in schema.properties) {
           schemaString = formatSchema(
             schema.properties[property],
@@ -66,49 +66,49 @@ export default React.createClass({
             nestLevel + 1,
             requiredProperties,
             property
-          )
+          );
         }
         schemaString.push(
           <p style={{ marginLeft: margin }} key={counter++}>{'}'}</p>
-        )
+        );
       } else if (schema.type === 'array') {
         schemaString.push(
           <p style={{ marginLeft: margin }} key={counter++}>
             {required}{(name ? name + ': ' : '') + '['}
           </p>
-        )
+        );
         schemaString = formatSchema(
           schema.items,
           schemaString,
           nestLevel + 1,
           requiredProperties
-        )
+        );
         schemaString.push(
           <p style={{ marginLeft: margin }} key={counter++}>{']'}</p>
-        )
+        );
       } else {
         schemaString.push(
           <p style={{ marginLeft: margin }} key={counter++}>
             {required}{(name ? name + ': ' : '') + schema.type}
           </p>
-        )
+        );
       }
-      return schemaString
+      return schemaString;
     }
 
     const parameters = (methodSpec.parameters || []).map(function(parameter) {
-      var required = parameter.required && requiredMark
-      var schema = {}
-      schema = resolveRef(parameter)
-      var nestLevel = 1
-      var schemaString = []
-      var requiredProperties = []
+      var required = parameter.required && requiredMark;
+      var schema = {};
+      schema = resolveRef(parameter);
+      var nestLevel = 1;
+      var schemaString = [];
+      var requiredProperties = [];
       schemaString = formatSchema(
         schema,
         schemaString,
         nestLevel,
         requiredProperties
-      )
+      );
       return (
         <tr key={parameter.name}>
           <td style={{ width: 120 }}>
@@ -119,23 +119,23 @@ export default React.createClass({
           <td>{schemaString}</td>
           <td>{parameter.description}</td>
         </tr>
-      )
-    })
+      );
+    });
 
     var responses = Object.keys(methodSpec.responses).map(function(response) {
-      var responseSpec = methodSpec.responses[response]
-      var schema = {}
-      schema = resolveRef(responseSpec)
-      var nestLevel = 1
-      var schemaString = []
-      var requiredProperties = []
+      var responseSpec = methodSpec.responses[response];
+      var schema = {};
+      schema = resolveRef(responseSpec);
+      var nestLevel = 1;
+      var schemaString = [];
+      var requiredProperties = [];
       if (schema.schema) {
         schemaString = formatSchema(
           schema,
           schemaString,
           nestLevel,
           requiredProperties
-        )
+        );
       }
       return (
         <tr key={response}>
@@ -143,8 +143,8 @@ export default React.createClass({
           <td>{schemaString}</td>
           <td>{responseSpec.description}</td>
         </tr>
-      )
-    })
+      );
+    });
 
     const cardClassnames = classnames('card', {
       'card--post': method === 'post',
@@ -152,7 +152,7 @@ export default React.createClass({
       'card--delete': method === 'delete',
       'card--put': method === 'put',
       'card--patch': method === 'patch'
-    })
+    });
 
     const cardHeaderClassNames = classnames('card-header', {
       'card-header--post': method === 'post',
@@ -160,7 +160,7 @@ export default React.createClass({
       'card-header--delete': method === 'delete',
       'card-header--put': method === 'put',
       'card-header--patch': method === 'patch'
-    })
+    });
 
     const cardHeaderTitleClassnames = classnames('card-header-title', {
       'card-header-title--post': method === 'post',
@@ -168,7 +168,7 @@ export default React.createClass({
       'card-header-title--delete': method === 'delete',
       'card-header-title--put': method === 'put',
       'card-header-title--patch': method === 'patch'
-    })
+    });
 
     return (
       <div className={cardClassnames} id={`${method.toUpperCase()} ${path}`}>
@@ -180,15 +180,15 @@ export default React.createClass({
             {methodSpec.summary}
           </div>
         </div>
-        <div className='card-block'>
+        <div className="card-block">
           <div style={{ marginBottom: 12 }}>
             {methodSpec.description}
           </div>
           {Boolean(parameters.length) &&
-            <table className='table table-sm'>
+            <table className="table table-sm">
               <thead>
                 <tr>
-                  <th className='table-active' colSpan={3}>
+                  <th className="table-active" colSpan={3}>
                     Parameters
                   </th>
                 </tr>
@@ -198,10 +198,10 @@ export default React.createClass({
               </tbody>
             </table>}
 
-          <table className='table table-sm'>
+          <table className="table table-sm">
             <thead>
               <tr>
-                <th className='table-active' colSpan={3}>
+                <th className="table-active" colSpan={3}>
                   Responses
                 </th>
               </tr>
@@ -212,6 +212,6 @@ export default React.createClass({
           </table>
         </div>
       </div>
-    )
+    );
   }
-})
+});
