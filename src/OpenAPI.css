@@ -80,8 +80,11 @@
 }
 /* parameter list */
 td p:not(:first-child) {
-  line-height: 50%;
+  margin: 0;
 }
 td p:first-child {
   margin-bottom: 0.5rem;
+}
+.card-block td .grayed {
+  color: #AAAAAA;
 }

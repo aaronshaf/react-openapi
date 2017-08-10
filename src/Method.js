@@ -93,6 +93,20 @@ export default React.createClass({
           </p>
         );
       }
+      if (schema.description) {
+        schemaString.push(
+          <p className="grayed" style={{ marginLeft: margin }} key={counter++}>
+            -  {schema.description}
+          </p>
+        );
+      }
+      if (schema.example) {
+        schemaString.push(
+          <p className="grayed" style={{ marginLeft: margin }} key={counter++}>
+            - Ex: {schema.example}
+          </p>
+        );
+      }
       return schemaString;
     }
 
