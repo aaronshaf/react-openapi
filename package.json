@@ -1,6 +1,6 @@
 {
   "name": "react-openapi",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "devDependencies": {
     "react-scripts": "^0.9.5"
   },
